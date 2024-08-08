@@ -8,14 +8,14 @@ import BookList from '../components/Details';
 
 
 function App() {
-  const [firstName, setFirstName] = useState('User');
+  const [username, setUsername] = useState('Admin');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
         try {
             const decodedToken = jwtDecode(token);
-            setFirstName(decodedToken.firstName);
+            setUsername(decodedToken.username);
         } catch (error) {
             console.error('Failed to decode token:', error);
         }
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="container">
       <div className="main">
-        <h1 className='mx-10 my-10 text-7xl font-serif text-slate-700'>Hello {firstName} </h1>
+        <h1 className='mx-10 my-10 text-5xl font-serif text-slate-700'>Hello {username} </h1>
         
         <BookList />
         

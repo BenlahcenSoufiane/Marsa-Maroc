@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  background: url('/src/images/lib.jpg');
+  background: url('/src/images/lib.png');
 }
 
 input,
@@ -256,7 +256,7 @@ select {
 .submit {
   margin-top: 40px;
   margin-bottom: 20px;
-  background: #d4af7a;
+  background: red;
   text-transform: uppercase;
 }
 

@@ -27,7 +27,12 @@ const User = sequelize.define('User', {
     defaultValue: 'user'
   },
   
-  Affectation: {
+  Affectation_Initiale: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'user'
+  },
+  Affectation_Finale: {
     type: DataTypes.STRING,
     allowNull: false,
     defaultValue: 'user'

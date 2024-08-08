@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.logo-small {
+  width: 150px; /* Adjust width as desired */
+  height: auto; /* Maintain aspect ratio */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

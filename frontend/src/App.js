@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 
 
 const PrivateRoute = ({ children }) => {
-  return localStorage.getItem('token') ? children : <Navigate to="/AuthPage" />;
+  return localStorage.getItem('token') ? children : <Navigate to="/" />;
 };
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <div>
       <Navbar />
         <Routes>
-          <Route path="/AuthPage" element={<AuthPage />} />
+          <Route path="/" element={<AuthPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>

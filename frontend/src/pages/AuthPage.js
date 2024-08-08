@@ -5,11 +5,10 @@ import '../AuthPage.css';
 
 const AuthPage = () => {
     const [isSignUp, setIsSignUp] = useState(false);
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [role, setRole] = useState('user'); // Default role is user
-    const [firstName, setFirstName] = useState(''); // State for first name
+    const [role, setRole] = useState(''); // Default role is user
     const [lastName, setLastName] = useState(''); // State for last name
     const navigate = useNavigate();
 
@@ -20,10 +19,10 @@ const AuthPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isSignUp) {
-            fetch('http://localhost:8084/signup', {
+            fetch('http://localhost:3000/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password, role, firstName, lastName })
+                body: JSON.stringify({ username, password, role })
             })
                 .then(async res => {
                     if (!res.ok) {
@@ -45,10 +44,10 @@ const AuthPage = () => {
                     alert('Signup failed: ' + error.message);
                 });
         } else {
-            fetch('http://localhost:8084/login', {
+            fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ username, password })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -73,10 +72,10 @@ const AuthPage = () => {
                 <div className="form sign-in">
                     <h2>Welcome</h2>
                     <label>
-                        <span>Email</span>
-                        <input type="email"
+                        <span>Username</span>
+                        <input type="text"
                             id="email"
-                            name="email" onChange={(e) => setEmail(e.target.value)} />
+                            name="email" onChange={(e) => setUsername(e.target.value)} />
                     </label>
                     <label>
                         <span>Password</span>
@@ -106,7 +105,7 @@ const AuthPage = () => {
                                 <label className='text-xs'>
                                     FIRST NAME
                                 </label>
-                                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
                             </div>
                             <div className="w-full">
                                 <label className='text-xs'>
@@ -117,7 +116,7 @@ const AuthPage = () => {
                         </div>
                         <label>
                             <span>Email</span>
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" value={username} onChange={(e) => setUsername(e.target.value)} />
                         </label>
                         <label>
                             <span>Password</span>
